@@ -1,0 +1,33 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+body{
+    background-color: rgba(0, 173, 163, 1);
+    font-family: Quicksand;
+}
+
+.background1 {
+    background-color: rgba(0, 173, 163, 1);
+    z-index: -1;
+}
+
+.background-margin1{
+    margin-top: 840px;
+}
+
+.background-margin2{
+    margin-top: 1800px;
+}
+
+.background2{
+    background-color: rgba(255, 252, 221, 1);
+    z-index: -1;
+}
+.background3{
+    background-color: white;
+    z-index: -1;
+}
+.background4{
+    background-color: rgba(0, 156, 156, 1);
+}

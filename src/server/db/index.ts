@@ -1,6 +1,7 @@
 import * as mysql from 'mysql';
 import config from "../config";
 import user from '../db/dbqueries/userQueries/userQ';
+import projects from "../db/dbqueries/projectQueries/projectQ"
 
 
 
@@ -26,5 +27,6 @@ export const Query = <T = any>(query: string, values?: any) => {
 
 
 export default { 
-    user
+    user,
+    projects
 }

@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Pridi:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+.top {
+    z-index: 10;
+}
+
+.custom-flex {
+    display: flex;
+}
+
+.space {
+    height: 1em;
+}
+
+.logo {
+    border-radius: 50%;
+    border: solid white 5px;
+    font-family: Pridi;
+    font-size: 150px;
+    color: white;
+    text-align: center;
+    width: 250px;
+    height:250px;
+    animation-duration: 2s;
+    animation-name: rollin;
+    margin-left:50px;
+    margin-top:50px;
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+} 
+
+@keyframes rollin {
+    from {
+        margin-left:-300px;
+        transform: rotate(-100deg);
+    }
+    to {
+        margin-left: 50px;
+        transform: rotate(0deg);
+    }
+}
+.pointer {
+    cursor: pointer;
+}
+
+.text-quicksand-big {
+    font-family: Quicksand;
+    font-size: 50px;
+}
+
+.new-styles {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.filler {
+    width: 50px;
+}
+
+.custom-container {
+    width: 75%;
+    height: 240px;
+    align-items: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+.on {
+    border-radius: 0px 50px 50px 0px;
+    z-index: 1;
+    margin-top: 0px;
+    left: 280px;
+    width: 100%;
+    height: 100px;
+    background: rgba(144, 242, 255, 1);
+    filter: drop-shadow(0mm 1mm .5mm rgba(0, 0, 0, 0.432));
+    object-fit: cover;
+    animation: slideMe .3s ease-in;
+}
+
+@keyframes slideMe {
+    0% {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    100% {
+        transform: skew(0deg);
+        opacity: 1;
+    }
+}
+
+.displayNone {
+    display: none;
+}
+
+.off {
+    border-radius: 0px 50px 50px 0px;
+    z-index: 1;
+    margin-top: 0px;
+    left: 280px;
+    width: 100%;
+    height: 100px;
+    background: rgba(144, 242, 255, 1);
+    filter: drop-shadow(0mm 1mm .5mm rgba(0, 0, 0, 0.432));
+    object-fit: cover;
+    opacity: 0;
+    animation: slideMe2 .3s ease-out;
+}
+
+@keyframes slideMe2 {
+    0% {
+        transform: skew(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .mobileon{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1110px) {
+    .filler2 {
+        width: 50px;
+    }
+    .mobileon{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 1110px) and (min-width: 1000px) {
+    .filler2 {
+        width: 100px;
+    }
+    .text-quicksand-big {
+        font-family: Quicksand;
+        font-size: 40px;
+
+    }
+    .mobileon{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 1000px) and (min-width: 760px) {
+    .mobileon{
+        display: inherit;
+    }
+    .mobileoff{
+        display: none !important;
+    }
+    .custom-container-logo{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        
+        height: 120px;
+        font-family: Quicksand;
+        font-size: 30px;
+        font-weight: 200;
+    }
+    .c {
+        background-color: rgba(144, 242, 255, 1);
+        border-top: 4px solid rgb(0, 69, 78);
+        border-bottom: 4px solid rgb(0, 69, 78);
+    }
+    .half{
+        width: 30%;
+        z-index: 3;
+    }
+    .logo {
+        border-radius: 50%;
+        border: solid white 5px;
+        font-family: Pridi;
+        font-size: 150px;
+        color: white;
+        text-align: center;
+        width: 250px;
+        height:250px;
+        animation-duration: 2s;
+        animation-name: rollin;
+        margin-right: 50px;
+        margin-top:0px;
+        background-color: black;
+        
+        z-index: 2;
+    } 
+    
+    @keyframes rollin {
+        0% {
+            margin-top:-1000px;
+            
+        }
+        70% {
+           margin-top: 30px;
+        }
+        100% {
+            margin-top: 0 ;
+        }
+    }
+}
+
+@media screen and (max-width: 760px) and (min-width: 580px) {
+    .c {
+        background-color: rgba(144, 242, 255, 1);
+        border-top: 4px solid rgb(0, 69, 78);
+        border-bottom: 4px solid rgb(0, 69, 78);
+    }
+    .mobileoff{
+        display: none;
+    }
+    .custom-container-logo{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        
+        height: 90px;
+        font-family: Quicksand;
+        font-size: 25px;
+        font-weight: 200;
+    }
+    #custom-margin {
+        margin-top: -60px !important;
+    }
+    .logo {
+        border-radius: 50%;
+        border: solid white 5px;
+        font-family: Pridi;
+        font-size: 85px;
+        color: white;
+        text-align: center;
+        width: 150px;
+        height:150px;
+        animation-duration: 2s;
+        animation-name: rollin;
+        margin-right:50px;
+        margin-top:70px;
+        background-color: black;
+        position: absolute;
+        z-index: 2;
+    } 
+    
+    @keyframes rollin {
+        from {
+            margin-left:-500px;
+            transform: rotate(-100deg);
+        }
+        to {
+            margin-left: 50px;
+            transform: rotate(0deg);
+        }
+    }
+}
+
+@media screen and (max-width: 579px) {
+    .small-nav-style {
+        display: flex !important;
+        
+    }
+    
+    
+    .mobileon {
+        display: none !important;
+    }
+    .mobileoff{
+        display: none;
+    }
+    .custom-container-logo{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        
+        height: 90px;
+        font-family: Quicksand;
+        font-size: 25px;
+        font-weight: 200;
+    }
+    #custom-margin {
+        margin-top: -60px !important;
+    }
+    .logo {
+        border-radius: 50%;
+        border: solid white 5px;
+        font-family: Pridi;
+        font-size: 85px;
+        color: white;
+        text-align: center;
+        width: 150px;
+        height:150px;
+        animation-duration: 2s;
+        animation-name: rollin;
+        margin-right:50px;
+        margin-top:70px;
+        background-color: black;
+        position: absolute;
+        z-index: 2;
+    } 
+    
+    @keyframes rollin {
+        from {
+            margin-left:-500px;
+            transform: rotate(-100deg);
+        }
+        to {
+            margin-left: 50px;
+            transform: rotate(0deg);
+        }
+    }
+
+    .custom-container3 {
+        width: 120px;
+        height: 220px;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        font-family: Quicksand;
+        font-weight: bold;
+        text-decoration: underline;
+        animation: custom-hide2 .3s ease-out;
+    }
+    @keyframes custom-hide2 {
+        0% {
+            height: 0px
+        } 100% {
+            height: 220px;
+        }
+    }
+
+    .custom-container3-alt {
+        width: 120px;
+        height: 0px;
+        animation: custom-hide .4s ease-out;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        font-family: Quicksand;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    @keyframes custom-hide {
+        0% {
+            height: 120px;
+        }
+        100% {
+            height: 0px;
+        }
+    }
+
+    .off {
+        border-radius: 0px 0px 50px 50px;
+        z-index: 1;
+        margin-top: 0px;
+        left: 280px;
+        width: 100%;
+        
+        background: rgba(144, 242, 255, 1);
+        filter: drop-shadow(0mm 1mm .5mm rgba(0, 0, 0, 0.432));
+        object-fit: cover;
+        opacity: 0;
+        animation: slideMe2 .3s ease-out;
+    }
+    
+    @keyframes slideMe2 {
+        0% {
+            transform: skew(0deg);
+            opacity: 1;
+            height: 200px;
+        }
+        100% {
+            transform: translateY(-500px);
+            opacity: 0;
+            display: none;
+            height: 0px;
+        }
+    }
+
+    .on {
+        border-radius: 0px 0px 20px 20px;
+        z-index: 1;
+        margin-top: 0px;
+        left: 280px;
+        width: 100%;
+        height: 200px;
+        background: rgba(144, 242, 255, 1);
+        filter: drop-shadow(0mm 1mm .5mm rgba(0, 0, 0, 0.432));
+        object-fit: cover;
+        animation: slideMe .3s ease-in;
+    }
+    
+    @keyframes slideMe {
+        0% {
+            transform: translateY(-500px);
+            opacity: 0;
+            display: none;
+        }
+        100% {
+            transform: skew(0deg);
+            opacity: 1;
+        }
+    }
+}
+
+#custom-margin {
+    margin-top: -100px;
+}
+
+.small-nav-style {
+    display: none;
+}
