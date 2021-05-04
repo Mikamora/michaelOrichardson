@@ -2,8 +2,11 @@ import * as React from "react";
 import "../scss/navbar";
 import { useLocation, useHistory, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import { scrollToBottom } from "react-scroll/modules/mixins/animate-scroll";
 
 const NavBar: React.FC<INavBar> = () => {
+    const location = useLocation();
     useLocation();
     const history = useHistory();
     const [loaded, setLoaded] = useState(false);
@@ -28,7 +31,13 @@ const NavBar: React.FC<INavBar> = () => {
     }
 
     let handleContact = () => {
-        history.push("/contact");
+        if (location.pathname == "/") {
+        } else {
+            history.push("/");
+            setTimeout(() => {
+                window.scroll({ top: 100000, behavior: "smooth" });
+            }, 500)
+        }
     }
 
     let changeTag = () => {
@@ -61,6 +70,7 @@ const NavBar: React.FC<INavBar> = () => {
                 <div className="custom-container-logo">
                     <div className={`${logo} absolute pointer`} onClick={changeTag}>mr;</div>
                 </div>
+                <div className="absolute col-12 custom-flex justify-content-end text-muted custom-reminder"> <span className="under-1000">*This site was made with</span> <span className="space-mid-sentence"></span>  React, SCSS, Express, and Node.</div>
                 <div className={`custom-flex ${c} justify-content-center small-nav-style`}>
                     <div className={`${tag2} custom-flex flex-wrap justify-content-center align-items-center small-nav-style`}>
                         <div className="col-12 space"></div>
@@ -68,7 +78,7 @@ const NavBar: React.FC<INavBar> = () => {
                         <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/"}>Home</NavLink>
                         <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/work"}>Work</NavLink>
                         <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/about"}>About</NavLink>
-                        <span className={` ${displayNone2} text-center col new-styles pointer top`} onClick={handleContact}>Contact</span>
+                        <Link to="contact" spy={false} smooth={true} className={` ${displayNone2} text-center col new-styles pointer top`} onClick={handleContact}>Contact</Link>
                     </div>
                 </div>
                 <div id="custom-margin" className="mobileon custom-flex justify-content-around align-items-center c custom-container-logo">
@@ -84,7 +94,7 @@ const NavBar: React.FC<INavBar> = () => {
                         <div className="filler mobileon"></div>
                         <NavLink className={` mobileon new-styles`} to={"/about"}>About</NavLink>
                         <div className="filler mobileon"></div>
-                        <span className={` mobileon new-styles pointer`} onClick={handleContact}>Contact</span>
+                        <Link to="contact" spy={false} smooth={true} className={` mobileon new-styles pointer`} onClick={handleContact}>Contact</Link>
 
                     </div>
                 </div>
@@ -95,7 +105,7 @@ const NavBar: React.FC<INavBar> = () => {
                         <NavLink className={` ${displayNone} new-styles`} to={"/"}>Home</NavLink>
                         <NavLink className={` ${displayNone} new-styles`} to={"/work"}>Work</NavLink>
                         <NavLink className={` ${displayNone} new-styles`} to={"/about"}>About</NavLink>
-                        <span className={` ${displayNone} new-styles pointer`} onClick={handleContact}>Contact</span>
+                        <Link to="contact" spy={false} smooth={true} className={` ${displayNone} new-styles pointer`} onClick={handleContact}>Contact</Link>
                     </div>
                 </div>
             </>
