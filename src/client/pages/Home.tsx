@@ -162,9 +162,9 @@ const Home: React.FC<IHomeProps> = () => {
                     <div className="filler"></div>
                     <div className="filler"></div>
                     <div className="filler"></div>
-                    <div className="col-12 d-flex justify-content-center"><input className="custom-contact-input width-input" type="text"/></div>
-                    <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" type="text"/></div>
-                    <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input" name="message" id="message-area" cols={48} rows={10}></textarea></div>
+                    <div className="col-12 d-flex justify-content-center"><input className="custom-contact-input width-input" type="text" placeholder="name"/></div>
+                    <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" type="text" placeholder="email"/></div>
+                    <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input" name="message" id="message-area" cols={48} rows={10} placeholder="message"></textarea></div>
                     <button className="btn btn-warning bolder mb-5">Send</button>
                     <div className="filler col-12"></div>
                     <div className="col-12 custom-flex-home justify-content-center over-500 text-muted text-center">*This site was made with React, SCSS, Express, and Node.</div>

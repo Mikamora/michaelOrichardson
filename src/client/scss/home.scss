@@ -404,7 +404,7 @@
 .blur-on:hover {
     filter: blur(3px);
     height: 320px !important;
-    animation: blur 1s;
+    animation: blur 3s;
 }
 @keyframes blur {
     0% {
@@ -418,7 +418,7 @@
 .blur-off:hover {
     filter: blur(0);
     height: 300px !important;
-    animation: blur-in 1s;
+    animation: blur-in 3s;
 }
 @keyframes blur-in {
     0% {
