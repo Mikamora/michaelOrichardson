@@ -75,24 +75,24 @@ const NavBar: React.FC<INavBar> = () => {
                     <div className={`${tag2} custom-flex flex-wrap justify-content-center align-items-center small-nav-style`}>
                         <div className="col-12 space"></div>
                         <div className="col-12 space"></div>
-                        <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/"}>Home</NavLink>
-                        <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/work"}>Work</NavLink>
-                        <NavLink className={` ${displayNone2} text-center col new-styles top`} to={"/about"}>About</NavLink>
+                        <NavLink exact className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
+                        <NavLink exact  className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
+                        <NavLink exact  className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>
                         <Link to="contact" spy={false} smooth={true} className={` ${displayNone2} text-center col new-styles pointer top`} onClick={handleContact}>Contact</Link>
                     </div>
                 </div>
                 <div id="custom-margin" className="mobileon custom-flex justify-content-around align-items-center c custom-container-logo">
                     <div className="ml-2 mobileon custom-flex justify-content-around">
-                        <NavLink className={` mobileon new-styles`} to={"/"}>Home</NavLink>
+                        <NavLink exact  className={` mobileon new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
                         <div className="filler mobileon"></div>
-                        <NavLink className={` mobileon new-styles`} to={"/work"}>Work</NavLink>
+                        <NavLink exact  className={` mobileon new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
                     </div>
                     <div className="filler mobileon"></div>
                     <div className="mr-2 mobileon custom-flex justify-content-around ">
                         <div className="filler mobileon"></div>
                         <div className="filler mobileon"></div>
                         <div className="filler mobileon"></div>
-                        <NavLink className={` mobileon new-styles`} to={"/about"}>About</NavLink>
+                        <NavLink exact  className={` mobileon new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>
                         <div className="filler mobileon"></div>
                         <Link to="contact" spy={false} smooth={true} className={` mobileon new-styles pointer`} onClick={handleContact}>Contact</Link>
 
@@ -102,9 +102,9 @@ const NavBar: React.FC<INavBar> = () => {
                     <div className={` ${tag} mobileoff navbar1 text-center text-quicksand-big custom-flex justify-content-around align-items-center`}>
                         <div className="filler"></div>
                         <div className="filler2"></div>
-                        <NavLink className={` ${displayNone} new-styles`} to={"/"}>Home</NavLink>
-                        <NavLink className={` ${displayNone} new-styles`} to={"/work"}>Work</NavLink>
-                        <NavLink className={` ${displayNone} new-styles`} to={"/about"}>About</NavLink>
+                        <NavLink exact  className={` ${displayNone} new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
+                        <NavLink exact  className={` ${displayNone} new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
+                        <NavLink exact  className={` ${displayNone} new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>
                         <Link to="contact" spy={false} smooth={true} className={` ${displayNone} new-styles pointer`} onClick={handleContact}>Contact</Link>
                     </div>
                 </div>

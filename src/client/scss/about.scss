@@ -1,13 +1,57 @@
+.custom-about-text {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 1200px) {
+  .custom-about-text {
+    font-size: 16px;
+  }
+}
+
 .profile-circle {
-    border-radius: 20%;
+    border-radius: 20px 0 20px 0;
     height: 500px;
-    width: auto;
-    border: 1px solid rgba(128, 128, 128, 0.781);
+    width: 340px;
+    border: 0px solid rgba(0, 0, 0, 0.781);
+}
+.profile-width {
+    width: 340px;
 }
 #width-custom {
     width: 100%;
-    height:100%;
-    margin-top: -300px;
+    overflow: hidden;
+    height:120%;
+    margin-top: -400px;
     z-index: -1;
-    background-color: rgb(255,252,221);
+    background-color: rgb(255, 244, 244);
+}
+.custom-flex-about {
+    display: flex;
+}
+.about-background {
+    background-color: rgb(255, 244, 244);
+}
+
+.edit-line {
+  border-width: 3px !important;
+}
+
+.socials {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.facebook {
+  width:58px;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+
+@media screen and (max-width: 315px) {
+  .profile-circle {
+    width: 250px;
+    height: 380px;
+    margin-left: 20px;
+  }
 }
