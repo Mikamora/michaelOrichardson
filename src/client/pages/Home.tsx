@@ -122,7 +122,7 @@ const Home: React.FC<IHomeProps> = () => {
                                     <>
                                         <div key={`p-mobile-${p.id}`} className="col-md-3 justify-content-center text-center less-med-quicksand underlined under-766"> <span className="bold">{p.title}</span> </div>
                                         <div key={`p-${p.id}`} className="col-md-3 relative">
-                                            <div key={`p-container-${p.id}`} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
+                                            <div key={`p-container-${p.id}`} onClick={() => {history.push(`/work/${p.id}`)}} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
                                                 <img key={`p-image1-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
                                                 <img key={`p-image2-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
                                                 <img key={`p-image3-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
@@ -132,7 +132,7 @@ const Home: React.FC<IHomeProps> = () => {
                                     </>
                                 ))
                                 }
-                                <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766"> <button className="button">View More</button> </div>
+                                <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766"> <button className="button" onClick={() => {history.push("/work")}}>View More</button> </div>
                             </div>
                             <div className="col-md-6 pic-container2"> <img className="profile-pic circle" src="./assets/profilepic.jpg" alt="" /> </div>
                             <div className="col-md-6 margin-top-desc custom-med-quicksand d-flex align-items-center">
@@ -148,7 +148,7 @@ const Home: React.FC<IHomeProps> = () => {
                                 </div>
                             </div>
                             <div className="filler over-766"></div>
-                            <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766 mb-4"> <button className="button">More About Me</button> </div>
+                            <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766 mb-4"> <button className="button" onClick={() => {history.push("/about")}}>More About Me</button> </div>
                         </div>
                     </main>
                 </div>

@@ -4,14 +4,14 @@
 
 @media screen and (min-width: 1200px) {
   .custom-about-text {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
 .profile-circle {
     border-radius: 20px 0 20px 0;
     height: 500px;
-    width: 340px;
+    width: 335px;
     border: 0px solid rgba(0, 0, 0, 0.781);
 }
 .profile-width {
@@ -22,6 +22,17 @@
     overflow: hidden;
     height:120%;
     margin-top: -400px;
+    z-index: -1;
+    background-color: rgb(255, 244, 244);
+}
+.filler-small {
+  height:20px;
+}
+#width-custom2 {
+    width: 100%;
+    overflow: hidden;
+    height:120%;
+    margin-top: -180px;
     z-index: -1;
     background-color: rgb(255, 244, 244);
 }
