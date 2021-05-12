@@ -92,13 +92,13 @@ const Home: React.FC<IHomeProps> = () => {
                             <div className="">I have a lot to show you!</div>
                             <span className="space"></span>
                             <div className="d-flex justify-content-center align-items-center">
-                            <Link to="work" spy={false} smooth={true}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="pointer bi bi-arrow-down-circle" viewBox="0 0 16 16">
-                                     <path fillRule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
-                                </svg>
+                                <Link to="work" spy={false} smooth={true}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="pointer bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                                    </svg>
                                 </Link>
                             </div>
-                            
+
                             <span className="space"></span>
                             <span className="space"></span>
                         </div>
@@ -122,7 +122,7 @@ const Home: React.FC<IHomeProps> = () => {
                                     <>
                                         <div key={`p-mobile-${p.id}`} className="col-md-3 justify-content-center text-center less-med-quicksand underlined under-766"> <span className="bold">{p.title}</span> </div>
                                         <div key={`p-${p.id}`} className="col-md-3 relative">
-                                            <div key={`p-container-${p.id}`} onClick={() => {history.push(`/work/${p.id}`)}} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
+                                            <div key={`p-container-${p.id}`} onClick={() => { history.push(`/work/${p.id}`) }} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
                                                 <img key={`p-image1-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
                                                 <img key={`p-image2-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
                                                 <img key={`p-image3-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
@@ -132,11 +132,11 @@ const Home: React.FC<IHomeProps> = () => {
                                     </>
                                 ))
                                 }
-                                <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766"> <button className="button" onClick={() => {history.push("/work")}}>View More</button> </div>
+                                <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766"> <button className="button" onClick={() => { history.push("/work") }}>View More</button> </div>
                             </div>
                             <div className="col-md-6 pic-container2"> <img className="profile-pic circle" src="./assets/profilepic.jpg" alt="" /> </div>
                             <div className="col-md-6 margin-top-desc custom-med-quicksand d-flex align-items-center">
-                                <div className="box"> <p> Hi again! I am a full-stack web developer currently looking for full-time work. I love coding as a whole but I have a passion for front-end UI/UX development and creating the most user-friendly experience possible.</p>
+                                <div className="box"> <p> I am a full-stack web developer currently looking for full-time work. I love coding as a whole but I have a passion for front-end UI/UX development and creating the most user-friendly experience possible.</p>
                                 </div>
                             </div>
                             <div className="custom-flex-home justify-content-center align-items-center col-12">
@@ -148,7 +148,7 @@ const Home: React.FC<IHomeProps> = () => {
                                 </div>
                             </div>
                             <div className="filler over-766"></div>
-                            <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766 mb-4"> <button className="button" onClick={() => {history.push("/about")}}>More About Me</button> </div>
+                            <div className="col-md-3 justify-content-center text-center less-med-quicksand under-766 mb-4"> <button className="button" onClick={() => { history.push("/about") }}>More About Me</button> </div>
                         </div>
                     </main>
                 </div>
@@ -162,8 +162,8 @@ const Home: React.FC<IHomeProps> = () => {
                     <div className="filler"></div>
                     <div className="filler"></div>
                     <div className="filler"></div>
-                    <div className="col-12 d-flex justify-content-center"><input className="custom-contact-input width-input" type="text" placeholder="name"/></div>
-                    <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" type="text" placeholder="email"/></div>
+                    <div className="col-12 d-flex justify-content-center"><input className="custom-contact-input width-input" type="text" placeholder="name" /></div>
+                    <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" type="text" placeholder="email" /></div>
                     <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input" name="message" id="message-area" cols={48} rows={10} placeholder="message"></textarea></div>
                     <button className="btn btn-warning bolder mb-5">Send</button>
                     <div className="filler col-12"></div>

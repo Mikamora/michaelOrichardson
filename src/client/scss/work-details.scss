@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.space-above {
+    height: 40px;
+}
+
+.space-above-small {
+    height: 20px;
+}
+
+.work-detail-header {
+    font-size: 70px;
+    font-family: pacifico;
+}
+
+.description {
+    font-weight: 600;
+}
+
+.line {
+    width: 90px;
+    border-top: 2px rgba(46, 46, 46, 0.329) solid;
+    height: 20px;
+}
+
+.socials {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  .facebook {
+    width:58px;
+    margin-left: -3px;
+    margin-top: -3px;
+  }
+
+.back-to-work {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: black;
+    border-radius: 5px;
+    width: 100px;
+    color: rgb(255, 255, 255);
+}
+.back-to-work:hover {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: black;
+    border-radius: 5px;
+    width: 100px;
+    color: rgb(255, 255, 255);
+}
+
+//shape up
+.canvas{
+    margin: 10px;
+    height: 600px;
+    width: 600px;
+    background-color: teal;
+    overflow: hidden;
+}
+
+.canvas-container{
+    height: 600px;
+}
+
+.specs{
+    display:flex;
+    flex-direction: column;
+}
+
+#Shape, #Width, #Height, #Area, #Perimeter, #Radius{
+    width: 400px;
+    background-color: rgb(253, 143, 244);
+    border: 1px black solid;
+    border-radius: 4px;
+    list-style-type: none;
+    margin: 3px;
+}
+
+.form{
+    border: black solid 1px;
+    background-color: coral;
+    border-radius: 5px;
+    padding: 10px;
+    width: 600px;
+    margin: 10px;
+}
+
+.shapes{
+    position: absolute;
+}
+///////// console.log
+@media screen and (max-width: 601px) {
+    .under-601 {
+        font-size: 40px;
+    }
+}
+
+.dont-display {
+    display: none !important;
+}
+/////////// tic tac toe
+#board{
+    padding: 3em 0 0 0;
+    text-align: center;
+}
+#SubmitButtonRestart:hover{
+    cursor: pointer;
+}
+#SubmitButtonRestart{
+    margin: 0 auto;
+    position: relative;
+    right: 5em;
+    top: 9em;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+.top{
+    border-bottom: 1px solid black;
+}
+.bottom{
+    border-top: 1px solid black;
+}
+.left{
+    border-right: 1px solid black;
+}
+.right{
+    border-left: 1px solid black;
+}
+/*all 9 cells*/
+.new-row>div{
+    float: left;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    font-size: 75px;
+}
+.new-row{
+    margin: 0 auto;
+    width: 302px;
+    clear: both;
+}
+.new-row>div:hover{
+    cursor: pointer;
+}
+
+

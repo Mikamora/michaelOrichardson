@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "../scss/work";
 
 const Work: React.FC<IWorkProps> = () => {
 
@@ -43,33 +44,41 @@ const Work: React.FC<IWorkProps> = () => {
         )()
     }, [])
 
-
-    return (
-        <>
-            <main className="container">
-                <div className="row">
-                    <div className="col-12 text-center bolder big-quicksand custom-header-text">Work</div>
-                    <div className="d-flex col-12 flex-wrap justify-content-center">
-                        {projects?.map((p: any) => (
-                            <>
-                                <div key={`p-mobile-${p.id}`} className="col-md-3 justify-content-center text-center less-med-quicksand underlined under-766"> <span className="bold">{p.title}</span> </div>
-                                <div key={`p-${p.id}`} className="col-md-4 relative">
-                                    <div key={`p-container-${p.id}`} onClick={() => { history.push(`/work/${p.id}`) }} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
-                                        <img key={`p-image1-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
-                                        <img key={`p-image2-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
-                                        <img key={`p-image3-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
-                                        <div key={`p-title-${p.id}`} className={`absolute position3 title-projects ${titleShow}`}>{p.title}</div>
+    if (w) {
+        return (
+            <>
+                <img className="background-line" src="./assets/homepageline.png" alt="" />
+                <main className="container">
+                    <div className="row">
+                        <div className="col-12 text-center bolder big-quicksand custom-header-text">Work</div>
+                        <div className="d-flex col-12 flex-wrap justify-content-center">
+                            {projects?.map((p: any) => (
+                                <>
+                                    <div key={`p-mobile-${p.id}`} className="col-md-3 justify-content-center text-center less-med-quicksand underlined under-766"> <span className="bold">{p.title}</span> </div>
+                                    <div key={`p-${p.id}`} className="col-md-4 relative">
+                                        <div key={`p-container-${p.id}`} onClick={() => { if (p.id == "4") {console.clear()}; history.push(`/work/${p.id}`) }} onMouseEnter={handleOnProjects} onMouseLeave={handleOffProjects} className={`${border} pointer custom-flex-home justify-content-center align-items-center project-box pic-container`}>
+                                            <img key={`p-image1-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
+                                            <img key={`p-image2-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
+                                            <img key={`p-image3-${p.id}`} src={p.image_url} className={`${blur} inside-pic`} alt="" />
+                                            <div key={`p-title-${p.id}`} className={`absolute position3 title-projects ${titleShow}`}>{p.title}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </>
-                        ))}
+                                </>
+                            ))}
+                        </div>
+                        <div className="text-center">+ this portfolio</div>
+                        <div className="filler"></div>
                     </div>
-                    <div className="text-center">+ this portfolio</div>
-                    <div className="filler"></div>
-                </div>
-            </main>
-        </>
-    )
+                </main>
+            </>
+        )
+    }
+    else {
+        return (
+            <>
+            </>
+        )
+    }
 }
 
 interface IWorkProps { };
