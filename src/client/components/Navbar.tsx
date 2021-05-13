@@ -77,10 +77,10 @@ const NavBar: React.FC<INavBar> = () => {
                     <div className={`${tag2} custom-flex flex-wrap justify-content-center align-items-center small-nav-style`}>
                         <div className="col-12 space"></div>
                         <div className="col-12 space"></div>
-                        <NavLink exact className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
-                        <NavLink exact  className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
-                        <NavLink exact  className={` ${displayNone2} text-center col new-styles top`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>
-                        <Link to="contact" spy={false} smooth={true} className={` ${displayNone2} text-center col new-styles pointer top`} onClick={handleContact}>Contact</Link>
+                        <NavLink exact className={` ${displayNone2} text-center col new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
+                        <NavLink exact  className={` ${displayNone2} text-center col new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
+                        <NavLink exact  className={` ${displayNone2} text-center col new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>
+                        <Link to="contact" spy={false} smooth={true} className={` ${displayNone2} text-center col new-styles pointer`} onClick={handleContact}>Contact</Link>
                     </div>
                 </div>
                 <div id="custom-margin" className="mobileon custom-flex justify-content-around align-items-center c custom-container-logo">

@@ -9,6 +9,14 @@
     display: flex;
 }
 
+.loading {
+    display: inherit;
+}
+
+.loading-box {
+    height: 70px;
+}
+
 .button {
     text-decoration: none;
     height: 40px;
@@ -126,8 +134,16 @@
     border: 0px !important;
 }
 
-.width-input {
-    width: 400px;
+@media screen and (min-width: 451px) {
+    .width-input {
+        width: 400px;
+    }  
+}
+
+@media screen and (max-width:450px) {
+    .width-input {
+        width:200px;
+    }
 }
 
 .inside-pic {

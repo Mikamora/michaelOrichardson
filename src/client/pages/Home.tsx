@@ -16,6 +16,12 @@ const Home: React.FC<IHomeProps> = () => {
     const [blur, setBlur] = useState("blur-off");
     const [titleShow, setTitleShow] = useState("title-off");
     const [border, setBorder] = useState("");
+    const [loading, setLoading] = useState("no-display");
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
     const history = useHistory();
     const w = localStorage.getItem("w");
     const handleLoad = () => {
@@ -49,6 +55,13 @@ const Home: React.FC<IHomeProps> = () => {
         setBorder("")
     }
 
+    let handleWorkPush = () => {
+        history.push("/work");
+        setTimeout((e: any) => {
+            scrollTo(0,0);
+        }, 1);
+    }
+
     let handleLearnMore = () => {
         if (learnMore == "learn-more-off") {
             setLearnMore("learn-more-on")
@@ -57,6 +70,37 @@ const Home: React.FC<IHomeProps> = () => {
             setLearnMore("learn-more-off")
             setLearnMoreObject("no-display")
         }
+    }
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        setLoading("loading")
+
+        fetch('/send/send', {
+            method: "POST",
+            body: JSON.stringify({ name: name, email: email, message: message }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }).then(
+            (response) => (response.json())
+        ).then((response) => {
+            if (response.status === 'success') {
+                setLoading("no-display")
+                alert("Message Sent.");
+                resetForm();
+            } else if (response.status === 'fail') {
+                setLoading("no-display")
+                alert("Message failed to send.")
+            }
+        })
+    }
+
+    const resetForm = () => {
+        setName("");
+        setEmail("");
+        setMessage("");
     }
 
     // let scrolldown1 = () => {
@@ -142,7 +186,7 @@ const Home: React.FC<IHomeProps> = () => {
                             <div className="custom-flex-home justify-content-center align-items-center col-12">
                                 <span onClick={handleLearnMore} className="pointer over-766 less-med-quicksand-permanent">learn more <img onClick={handleLearnMore} className={`${learnMore} side-drop-triangle`} src="./assets/triangle.png" alt="" /> </span>
                                 <div className={`over-766 ${learnMoreObject}`}>
-                                    <span className={`pointer`} onClick={() => history.push("/work")}> <span className="under-980">About my</span> work</span>
+                                    <span className={`pointer`} onClick={handleWorkPush}> <span className="under-980">About my</span> work</span>
                                     <span className="space"></span>
                                     <span className={`pointer`} onClick={() => history.push("/about")}> <span className="under-980">About</span> me</span>
                                 </div>
@@ -158,14 +202,13 @@ const Home: React.FC<IHomeProps> = () => {
                     <div className="filler col-12"></div>
                     <div className="col-12 text-center bolder big-quicksand custom-header-text white no-margin">Contact Me</div>
                     <div className="col-12 text-center less-med-quicksand-permanent under-500 white">If you have any questions, let me know!</div>
-                    <div className="filler"></div>
-                    <div className="filler"></div>
-                    <div className="filler"></div>
-                    <div className="filler"></div>
-                    <div className="col-12 d-flex justify-content-center"><input className="custom-contact-input width-input" type="text" placeholder="name" /></div>
-                    <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" type="text" placeholder="email" /></div>
-                    <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input" name="message" id="message-area" cols={48} rows={10} placeholder="message"></textarea></div>
-                    <button className="btn btn-warning bolder mb-5">Send</button>
+                    <div className="col-12 loading-box d-flex justify-content-center align-items-center"><img className={`${loading}`} src="/assets/loading.gif" alt="" /></div>
+                    <form id="contact-form" onSubmit={handleSubmit} method="POST">
+                        <div className="col-12 d-flex justify-content-center flex-wrap"><input className="custom-contact-input width-input" onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder="name" /></div>
+                        <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder="email" /></div>
+                        <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input width-input" name="message" onChange={(e) => setMessage(e.target.value)} value={message} id="message-area"  rows={10} placeholder="message"></textarea></div>
+                        <div className="col-12 d-flex justify-content-center"><button type="submit" className="btn btn-warning bolder mb-5">Send</button></div>
+                    </form>
                     <div className="filler col-12"></div>
                     <div className="col-12 custom-flex-home justify-content-center over-500 text-muted text-center">*This site was made with React, SCSS, Express, and Node.</div>
                 </div>
