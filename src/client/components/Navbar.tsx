@@ -19,6 +19,8 @@ const NavBar: React.FC<INavBar> = () => {
 
     window.onbeforeunload = function (e: any) {
         localStorage.removeItem("w");
+        localStorage.removeItem("vs");
+        localStorage.removeItem("comp");
     };
 
     const handleLoad = () => {

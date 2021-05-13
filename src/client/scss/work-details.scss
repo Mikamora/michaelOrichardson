@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 
 .space-above {
     height: 40px;
@@ -144,5 +146,46 @@
 .new-row>div:hover{
     cursor: pointer;
 }
+.vs {
+    background-color: rgb(238, 182, 0);
+}
+.computer {
+    background-color: rgb(238, 182, 0);
+}
+.title-tic {
+    font-family:'Times New Roman', Times, serif ;
 
-
+}
+#winningStatement {
+    font-family:'Times New Roman', Times, serif ;
+}
+////// general
+.space-in-mid {
+    width: 1em;
+    height: 1em;
+}
+.spacing-50 {
+    height: 50px;
+}
+.spacing-100 {
+    height: 100px;
+}
+.bl-small-quicksand-text {
+    font-family: Quicksand;
+    color: #000000;
+    font-size: 18px;
+}
+.bl-abril-text {
+    font-family: Abril Fatface;
+    color: #000000;
+    font-size: 70px;
+}
+@media screen and (max-width: 540px) {
+    .bl-abril-text {
+      font-size: 30px;
+    }
+  }
+  .goback-margin {
+    margin-left: 60px;
+  }
+  

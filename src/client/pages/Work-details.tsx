@@ -203,9 +203,182 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
         setConsole("");
     }
     //////// tic tac toe
+    const [newGame, setNewGame] = useState("no-display");
+    const [computer, setComputer] = useState("computer");
+    const [vs, setVs] = useState("vs");
+    const displayComp = () => {
+        setNewGame("");
+        setVs("vs");
+        setComputer("");
+        localStorage.setItem("comp", "comp")
+        if (localStorage.getItem("vs")) {
+            localStorage.removeItem("vs");
+        }
+    }
+    const displayVs = () => {
+        setNewGame("");
+        setVs("");
+        setComputer("computer");
+        localStorage.setItem("vs", "vs")
+        if (localStorage.getItem("comp")) {
+            localStorage.removeItem("comp");
+        }
+    }
 
-    //////// dice
+    let routeProfile = () => {
+        history.push(`/work`)
+    }
 
+    let board = document.querySelector("#board");
+    let button = document.querySelector("#SubmitButtonRestart");
+    let winningStatement = document.querySelector("#winningStatement");
+    let whoseTurn = true;
+    let cells = document.querySelectorAll(".new-row > div");
+    // console.log(cells);
+    board?.addEventListener("click", checkWin);
+    button?.addEventListener("click", startOver);
+    for (let i = 0; i < cells.length; i++) {
+        cells[i]?.addEventListener("click", cellClicked);
+    }
+
+    function startOver() {
+        location.reload();
+    }
+    const computerTurn = (e: any, cellsClicked: any) => {
+        if (winningStatement.textContent == "X Wins!" || winningStatement.textContent == "Draw!") {
+            return;
+        } else {
+            const random = randomVal(0, 9);
+            console.log(random);
+            const compare = cells[random];
+            console.log(compare);
+            if (Array.prototype.indexOf.call(cellsClicked, compare) == -1) {
+                compare.classList.add("clicked");
+                compare.textContent = "O";
+                winningStatement.textContent = "X's turn";
+                for (let i = 0; i < cells.length; i++) {
+                    cells[i]?.addEventListener("click", cellClicked);
+                }
+                checkWin();
+            } else {
+                computerTurn(e, cellsClicked);
+            }
+        }
+
+    }
+
+    function cellClicked(e: any) {
+        if (whoseTurn == true) {
+            // let c = e.path[0].slice(0,3);
+            // console.log(e.target);
+            // console.log(cells[1])
+            if (e.target.textContent == "O" || e.target.textContent == "X" || winningStatement.textContent == "O Wins!") {
+                return;
+            }
+            if (localStorage.getItem("vs")) {
+                e.target.textContent = "X";
+                winningStatement.textContent = "O's turn";
+                whoseTurn = false;
+            } if (localStorage.getItem("comp")) {
+                e.target.textContent = "X";
+                winningStatement.textContent = "Computer's turn";
+                // console.log(Array.prototype.indexOf.call(cells, e.target));
+                cells[Array.prototype.indexOf.call(cells, e.target)].classList.add("clicked");
+                let cellsClicked = document.querySelectorAll(".clicked");
+                // console.log(cellsClicked);
+                for (let i = 0; i < cells.length; i++) {
+                    cells[i].removeEventListener("click", cellClicked);
+                }
+                setTimeout((e: any) => {
+                    computerTurn(e, cellsClicked);
+                }, 1000);
+
+            }
+        }
+        else {
+            e.target.textContent = "O";
+            winningStatement.textContent = "X's turn";
+            whoseTurn = true;
+        }
+    }
+
+    function checkWin() {
+        function startOver() {
+            location.reload();
+        }
+        if (cells[0].textContent === "X" && cells[1].textContent === "X" && cells[2].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+
+        } else if (cells[3].textContent === "X" && cells[4].textContent === "X" && cells[5].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[6].textContent === "X" && cells[7].textContent === "X" && cells[8].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[0].textContent === "X" && cells[3].textContent === "X" && cells[6].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[1].textContent === "X" && cells[4].textContent === "X" && cells[7].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[2].textContent === "X" && cells[5].textContent === "X" && cells[8].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[0].textContent === "X" && cells[4].textContent === "X" && cells[8].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[2].textContent === "X" && cells[4].textContent === "X" && cells[6].textContent === "X") {
+            winningStatement.textContent = "X Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[0].textContent === "O" && cells[1].textContent === "O" && cells[2].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[3].textContent === "O" && cells[4].textContent === "O" && cells[5].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[6].textContent === "O" && cells[7].textContent === "O" && cells[8].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[0].textContent === "O" && cells[3].textContent === "O" && cells[6].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[1].textContent === "O" && cells[4].textContent === "O" && cells[7].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[2].textContent === "O" && cells[5].textContent === "O" && cells[8].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[0].textContent === "O" && cells[4].textContent === "O" && cells[8].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else if (cells[2].textContent === "O" && cells[4].textContent === "O" && cells[6].textContent === "O") {
+            winningStatement.textContent = "O Wins!";
+            // win = true;
+            board?.addEventListener("click", startOver);
+        } else {
+            if (cells[0].textContent != "" && cells[1].textContent != "" && cells[2].textContent != "" && cells[3].textContent != "" && cells[4].textContent != "" && cells[5].textContent != "" && cells[6].textContent != "" && cells[7].textContent != "" && cells[8].textContent != "") {
+                winningStatement.textContent = "Draw!";
+                // win = true;
+                board?.addEventListener("click", startOver);
+            }
+        }
+    }
 
     if (!w) {
         return (
@@ -357,25 +530,29 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
         return (
             <>
                 <div id="board">
-                    <h1>Tic Tac Toe Board!</h1>
-                    <h3>X's turn</h3>
-                    <div className="new-row">
-                        <div className="top left"></div>
-                        <div className="top middle"></div>
-                        <div className="top right"></div>
+                    <h1 className="title-tic">{projects?.[5].title}</h1>
+
+                    <div className="col-12 d-flex justify-content-center title-tic"><button className={`button ${computer}`} onClick={displayComp}>Vs Computer</button><button className={`button ${vs}`} onClick={displayVs}>Local multiplayer</button></div>
+                    <div className={`${newGame} space-above col-12`}></div>
+                    <h3 id="winningStatement" className={`${newGame} `}>{`${newGame} X's turn`}</h3>
+                    <div className={`${newGame} space-above col-12`}></div>
+                    <div className={`${newGame} new-row`}>
+                        <div className={`${newGame} top left`}></div>
+                        <div className={`${newGame} top middle`}></div>
+                        <div className={`${newGame} top right`}></div>
                     </div>
-                    <div className="new-row">
-                        <div className="middle left"></div>
-                        <div className="center"></div>
-                        <div className="middle right"></div>
+                    <div className={`${newGame} new-row`}>
+                        <div className={`${newGame} middle left`}></div>
+                        <div className={`${newGame} center`}></div>
+                        <div className={`${newGame} middle right`}></div>
                     </div>
-                    <div className="new-row">
-                        <div className="bottom left"></div>
-                        <div className="bottom middle"></div>
-                        <div className="bottom right"></div>
+                    <div className={`${newGame} new-row`}>
+                        <div className={`${newGame} bottom left`}></div>
+                        <div className={`${newGame} bottom middle`}></div>
+                        <div className={`${newGame} bottom right`}></div>
                     </div>
                 </div>
-                <button id="SubmitButtonRestart">restart</button>
+                <button id="SubmitButtonRestart" className={`${newGame} `}>restart</button>
             </>
         )
     }
@@ -383,6 +560,16 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
     else {
         return (
             <>
+            <main className="container d-flex justify-content-center flex-wrap">
+                    <div className="col-12">
+                        <button onClick={routeProfile} className="btn btn-warning goback-margin mt-5">Go Back?</button>
+                    </div>
+                    <div className="bl-abril-text col-12 text-center">This project doesnt exist yet...</div>
+                    <div className="spacing-100 col-12"></div>
+                    <div className="spacing-50 col-12"></div>
+                    <div className="bl-small-quicksand-text text-muted text-center col-12">contact me and we can get started on bringing it to life!</div>
+                    <button onClick={handleContact} className="btn btn-warning">Let's Get To Work!</button>
+                </main>
             </>
         )
     }
