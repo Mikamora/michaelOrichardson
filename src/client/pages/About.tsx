@@ -5,6 +5,7 @@ import "../scss/about";
 
 const About: React.FC<IAboutProps> = () => {
 
+    const history = useHistory();
     const [loaded, setLoaded] = useState(false);
     const [loadedContent, setLoadedContent] = useState(false);
     const [ctrl, setCtrl] = useState(false);
@@ -37,6 +38,16 @@ const About: React.FC<IAboutProps> = () => {
             darkmode();
         }
     })
+
+    let handleContact = () => {
+        if (location.pathname == "/") {
+        } else {
+            history.push("/");
+            setTimeout(() => {
+                document.getElementById("contact").scrollIntoView()
+            }, 100)
+        }
+    }
 
     let darkmode = () => {
         if (!checkDark) {
@@ -82,7 +93,7 @@ const About: React.FC<IAboutProps> = () => {
                                     <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="./assets/linkedin.png" alt="" /></a>
                                 </div>
                                 <div className="filler-small"></div>
-                                <div className="text-center custom-about-text-2">mor7991@yahoo.com</div>
+                                <div className="text-center custom-about-text-2 pointer" onClick={handleContact}>mor7991@yahoo.com</div>
                             </div>
                         </div>
                         <div className="row col-12 filler">

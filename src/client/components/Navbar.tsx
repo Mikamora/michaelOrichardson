@@ -37,7 +37,7 @@ const NavBar: React.FC<INavBar> = () => {
         } else {
             history.push("/");
             setTimeout(() => {
-                window.scroll({ top: 100000, behavior: "smooth" });
+                document.getElementById("contact").scrollIntoView()
             }, 500)
         }
     }
@@ -82,7 +82,7 @@ const NavBar: React.FC<INavBar> = () => {
                 <div className={`custom-flex ${c} justify-content-center small-nav-style`}>
                     <div className={`${tag2} custom-flex flex-wrap justify-content-center align-items-center small-nav-style`}>
                         <div className="col-12 space"></div>
-                        <div className="col-12 space"></div>
+                        <div className="col-12 space mb-1"></div>
                         <NavLink exact className={` ${displayNone2} text-center col new-styles mt-1`} activeStyle={{fontWeight: "bolder"}} to={"/"}>Home</NavLink>
                         <NavLink exact  className={` ${displayNone2} text-center col new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/work"}>Work</NavLink>
                         <NavLink exact  className={` ${displayNone2} text-center col new-styles`} activeStyle={{fontWeight: "bolder"}} to={"/about"}>About</NavLink>

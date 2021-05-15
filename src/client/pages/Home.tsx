@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "../scss/home";
@@ -7,7 +7,6 @@ import "../scss/home";
 
 
 const Home: React.FC<IHomeProps> = () => {
-
 
     const [loaded, setLoaded] = useState(false);
     const [projects, setProjects] = useState(null);
@@ -197,9 +196,9 @@ const Home: React.FC<IHomeProps> = () => {
                     </main>
                 </div>
                 {/* third part/ contact */}
-                <div id="contact" className="background4 d-flex justify-content-center flex-wrap">
+                <div className="background4 d-flex justify-content-center flex-wrap">
                     <div className="filler col-12"></div>
-                    <div className="filler col-12"></div>
+                    <div id="contact" className="filler col-12"></div>
                     <div className="col-12 text-center bolder big-quicksand custom-header-text white no-margin">Contact Me</div>
                     <div className="col-12 text-center less-med-quicksand-permanent under-500 white">If you have any questions, let me know!</div>
                     <div className="col-12 loading-box d-flex justify-content-center align-items-center"><img className={`${loading}`} src="/assets/loading.gif" alt="" /></div>

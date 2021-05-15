@@ -44,7 +44,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
         } else {
             history.push("/");
             setTimeout(() => {
-                window.scroll({ top: 100000, behavior: "smooth" });
+                document.getElementById("contact").scrollIntoView()
             }, 100)
         }
     }
@@ -300,6 +300,9 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
             }
         }
         else {
+            if (e.target.textContent == "O" || e.target.textContent == "X" || winningStatement.textContent == "X Wins!") {
+                return;
+            }
             e.target.textContent = "O";
             winningStatement.textContent = "X's turn";
             whoseTurn = true;

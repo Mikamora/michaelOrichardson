@@ -13,6 +13,10 @@ body{
     z-index: -1;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .background-margin1{
     margin-top: 840px;
 }

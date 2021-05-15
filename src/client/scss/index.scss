@@ -8,6 +8,10 @@ body{
     font-weight: 400;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .background1 {
     background-color: rgba(0, 173, 163, 1);
     z-index: -1;
