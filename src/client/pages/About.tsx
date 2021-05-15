@@ -6,6 +6,7 @@ import "../scss/about";
 const About: React.FC<IAboutProps> = () => {
 
     const [loaded, setLoaded] = useState(false);
+    const [loadedContent, setLoadedContent] = useState(false);
     const [ctrl, setCtrl] = useState(false);
     const [shift, setShift] = useState(false);
     const w = localStorage.getItem("w");
@@ -13,11 +14,19 @@ const About: React.FC<IAboutProps> = () => {
     const handleLoad = () => {
         setLoaded(true);
     };
+    const handleLoad2 = () => {
+        setLoadedContent(true);
+    }
     useEffect(() => {
         setTimeout(async () => {
             handleLoad(); //After three seconds call handleLoad(), which has setLoaded() === true.
-        }, 2000);
+        }, 1000);
     }, [loaded]);
+    useEffect(() => {
+        setTimeout(async () => {
+            handleLoad2(); //After three seconds call handleLoad(), which has setLoaded() === true.
+        }, 2000);
+    });
 
     window.addEventListener("keydown", (e: any) => {
         if (e.key == "Control") {
@@ -48,7 +57,16 @@ const About: React.FC<IAboutProps> = () => {
                 <div id="width-custom2" className="absolute"></div>
             </>
         )
-    } else if (!checkDark) {
+    } else if (!loaded) {
+        return (
+            <>
+                <div id="width-custom" className="absolute"></div>
+                <div id="width-custom2" className="absolute"></div>
+                <div className="loader2">Loading...</div>
+            </>
+        )
+    }
+    else if (!checkDark) {
         return (
             <>
                 <div className="text-muted absolute custom-dark-info"> * A little bright? Ctrl + Shift + L</div>

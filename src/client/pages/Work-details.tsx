@@ -9,13 +9,22 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
     const w = window.localStorage.getItem("w")
     const { id } = useParams<{ id: string }>();
     const [loaded, setLoaded] = useState(false);
+    const [loadedContent, setLoadedContent] = useState(false);
     const [projects, setProjects] = useState(null);
     const handleLoad = () => {
         setLoaded(true);
     };
+    const handleLoad2 = () => {
+        setLoadedContent(true);
+    }
     useEffect(() => {
         setTimeout(async () => {
             handleLoad(); //After three seconds call handleLoad(), which has setLoaded() === true.
+        }, 1500);
+    }, [loaded]);
+    useEffect(() => {
+        setTimeout(async () => {
+            handleLoad2(); //After three seconds call handleLoad(), which has setLoaded() === true.
         }, 2000);
     }, [loaded]);
 
@@ -385,16 +394,86 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
             <>
             </>
         )
-    }
-    else if (id == "1" || id == "2" || id == "5" || id == "7") {
-        return (
-            <>
-                <main className="container">
-                    <div className="row d-flex justify-content-center">
-                        <div className="space-above col-12"></div>
-                        {projects ? (<> <div className="col-12 text-center work-detail-header">{projects[Number(id) - 1].title}</div>
-                            <YoutubeEmbed embedId={`${projects[Number(id) - 1].vid_url.slice(32, projects[Number(id) - 1].vid_url.length)}`} />
+    } else if (loaded && w) {
+        if (id == "1" || id == "2" || id == "5" || id == "7") {
+            return (
+                <>
+                    <main className="container">
+                        <div className="row d-flex justify-content-center">
                             <div className="space-above col-12"></div>
+                            {projects ? (<> <div className="col-12 text-center work-detail-header">{projects[Number(id) - 1].title}</div>
+                                <YoutubeEmbed embedId={`${projects[Number(id) - 1].vid_url.slice(32, projects[Number(id) - 1].vid_url.length)}`} />
+                                <div className="space-above col-12"></div>
+                                <div className="col-12 d-flex justify-content-center">
+                                    <div className="line"></div>
+                                </div>
+                                <div className="description text-center">{projects[Number(id) - 1].description}</div>
+                                <div className="space-above-small col-12"></div>
+                                <div className="col-12 d-flex justify-content-center">
+                                    <div className="line"></div>
+                                </div>
+                                <div className="space-above col-12"></div>
+                            </>) : (<div></div>)}
+                            <div className="d-flex justify-content-between col-12">
+                                <a href="https://www.facebook.com/michael.richardson.98892615" target="_blank"><span className="socials"><img className="facebook" src="/assets/fb.png" alt="" /></span></a>
+                                <a href="https://github.com/Mikamora" target="_blank"><img src="/assets/github.png" className="socials" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
+                            </div>
+                            <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
+                                <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
+                            </div>
+                            <div className="space-above col-12"></div>
+                        </div>
+                    </main>
+                </>
+            )
+        }
+        //shapeup
+        else if (id == "3") {
+            return (
+                <>
+                    <main className="container">
+                        <div className="space-above col-12"></div>
+                        {projects ? (<> <div className="col-12 text-center work-detail-header">{projects[Number(id) - 1].title}</div></>) : (<div></div>)}
+                        <form className="form col-12" action="">
+                            <div>
+                                <input type="text" name="rectangle-height" onChange={(e) => setRecHeight(e.target.value)} id="rectangle-height" placeholder="rectangle-height" />
+                            </div>
+                            <div>
+                                <input type="text" name="rectangle-width" onChange={(e) => setRecWidth(e.target.value)} id="rectangle-width" placeholder="rectangle-width" />
+                                <button type="button" className="button" onClick={submitRec}>Submit Rectangle</button>
+                            </div>
+                            <div>
+                                <input type="text" name="square-length" onChange={(e) => { setRecHeight(e.target.value); setRecWidth(e.target.value) }} id="square-length" placeholder="square-length" />
+                                <button type="button" className="button" onClick={submitSqu}>Submit Square</button>
+                            </div>
+                            <div>
+                                <input type="text" name="circle-radius" onChange={(e) => setCirRadius(e.target.value)} id="circle-radius" placeholder="circle-radius" />
+                                <button type="button" className="button" onClick={submitCir}>Submit Circle</button>
+                            </div>
+                            <div>
+                                <input type="text" name="triangle-height" onChange={(e) => setTriHeight(e.target.value)} id="triangle-height" placeholder="triangle-height" />
+                                <button type="button" className="button" onClick={submitTri}>Submit Triangle</button>
+                            </div>
+    
+                        </form>
+                        <div className="canvas-container d-flex justify-content-center flex-wrap">
+                            <div className="canvas col-md-8">
+                                {numChildren.map((child: any, index: any) => (
+                                    child
+                                ))}
+                            </div>
+                            <div className="specs col-md-3">
+                                <li className="bold" id="Shape">Shape Name: {showShape}</li>
+                                <li className="bold" id="Width">Width: {showWidth}</li>
+                                <li className="bold" id="Height">Height: {showHeight}</li>
+                                <li className="bold" id="Radius">Radius: {showRadius}</li>
+                                <li className="bold" id="Area">Area: {showArea}</li>
+                                <li className="bold" id="Perimeter">Perimeter: {showPerimeter}</li>
+                            </div>
+                        </div>
+                        {projects ? (<> <div className="space-above col-12"></div>
                             <div className="col-12 d-flex justify-content-center">
                                 <div className="line"></div>
                             </div>
@@ -403,8 +482,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                             <div className="col-12 d-flex justify-content-center">
                                 <div className="line"></div>
                             </div>
-                            <div className="space-above col-12"></div>
-                        </>) : (<div></div>)}
+                            <div className="space-above col-12"></div> </>) : (<div></div>)}
                         <div className="d-flex justify-content-between col-12">
                             <a href="https://www.facebook.com/michael.richardson.98892615" target="_blank"><span className="socials"><img className="facebook" src="/assets/fb.png" alt="" /></span></a>
                             <a href="https://github.com/Mikamora" target="_blank"><img src="/assets/github.png" className="socials" alt="" /></a>
@@ -415,161 +493,99 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                             <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                         </div>
                         <div className="space-above col-12"></div>
+                    </main>
+                </>
+            )
+        }
+        //console
+        else if (id == "4") {
+            return (
+                <>
+                    <main className="container">
+                        <div className="row">
+                            {projects ? (<>
+                                <div className="space-above col-12"></div>
+                                <div className="col-12 text-center work-detail-header under-601">{projects[Number(id) - 1].description}</div>
+                                <div className="space-above col-12"></div>
+                                <div className="d-flex col-12 justify-content-center"><input onChange={e => setConsole(e.target.value)} value={consoleStatement} type="text" placeholder="say hello..." /></div>
+                                <div className="space-above col-12"></div>
+                                <div className="d-flex col-12 justify-content-center"><button className="btn btn-dark" onClick={displayMessage}>send message</button></div>
+                                <div className="space-above col-12"></div>
+                                <div className={`d-flex col-12 justify-content-center ${nameIt}`} ><input className={`${nameIt}`} onChange={e => setConsoleName(e.target.value)} value={consoleName} type="text" placeholder="whats the new name?" /></div>
+                                <div className="space-above col-12"></div>
+                                <div className={`d-flex col-12 justify-content-center ${nameIt}`}><button className={`btn btn-dark ${nameIt}`} onClick={displayMessage}>set name</button></div>
+                            </>) : (<div></div>)}
+                            <div className="col-12 d-flex justify-content-center">
+                                <div className="line"></div>
+                            </div>
+                            <div className="space-above col-12"></div>
+                            <div className="d-flex justify-content-between col-12">
+                                <a href="https://www.facebook.com/michael.richardson.98892615" target="_blank"><span className="socials"><img className="facebook" src="/assets/fb.png" alt="" /></span></a>
+                                <a href="https://github.com/Mikamora" target="_blank"><img src="/assets/github.png" className="socials" alt="" /></a>
+                                <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
+                            </div>
+                            <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
+                                <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
+                            </div>
+                            <div className="space-above col-12"></div>
+                        </div>
+                    </main>
+                </>
+            )
+        }
+        //tic tac toe
+        else if (id == "6") {
+            return (
+                <>
+                    <div id="board">
+                        <h1 className="title-tic">{projects?.[5].title}</h1>
+    
+                        <div className="col-12 d-flex justify-content-center title-tic"><button className={`button ${computer}`} onClick={displayComp}>Vs Computer</button><button className={`button ${vs}`} onClick={displayVs}>Local multiplayer</button></div>
+                        <div className={`${newGame} space-above col-12`}></div>
+                        <h3 id="winningStatement" className={`${newGame} `}>{`${newGame} X's turn`}</h3>
+                        <div className={`${newGame} space-above col-12`}></div>
+                        <div className={`${newGame} new-row`}>
+                            <div className={`${newGame} top left`}></div>
+                            <div className={`${newGame} top middle`}></div>
+                            <div className={`${newGame} top right`}></div>
+                        </div>
+                        <div className={`${newGame} new-row`}>
+                            <div className={`${newGame} middle left`}></div>
+                            <div className={`${newGame} center`}></div>
+                            <div className={`${newGame} middle right`}></div>
+                        </div>
+                        <div className={`${newGame} new-row`}>
+                            <div className={`${newGame} bottom left`}></div>
+                            <div className={`${newGame} bottom middle`}></div>
+                            <div className={`${newGame} bottom right`}></div>
+                        </div>
                     </div>
-                </main>
-            </>
-        )
-    }
-    //shapeup
-    else if (id == "3") {
+                    <button id="SubmitButtonRestart" className={`${newGame} `}>restart</button>
+                </>
+            )
+        }
+        //if doesnt exist
+        else {
+            return (
+                <>
+                <main className="container d-flex justify-content-center flex-wrap">
+                        <div className="col-12">
+                            <button onClick={routeProfile} className="btn btn-warning goback-margin mt-5">Go Back?</button>
+                        </div>
+                        <div className="bl-abril-text col-12 text-center">This project doesnt exist yet...</div>
+                        <div className="spacing-100 col-12"></div>
+                        <div className="spacing-50 col-12"></div>
+                        <div className="bl-small-quicksand-text text-muted text-center col-12">contact me and we can get started on bringing it to life!</div>
+                        <button onClick={handleContact} className="btn btn-warning">Let's Get To Work!</button>
+                    </main>
+                </>
+            )
+        }
+    } else if (!loaded) {
         return (
             <>
-                <main className="container">
-                    <div className="space-above col-12"></div>
-                    {projects ? (<> <div className="col-12 text-center work-detail-header">{projects[Number(id) - 1].title}</div></>) : (<div></div>)}
-                    <form className="form col-12" action="">
-                        <div>
-                            <input type="text" name="rectangle-height" onChange={(e) => setRecHeight(e.target.value)} id="rectangle-height" placeholder="rectangle-height" />
-                        </div>
-                        <div>
-                            <input type="text" name="rectangle-width" onChange={(e) => setRecWidth(e.target.value)} id="rectangle-width" placeholder="rectangle-width" />
-                            <button type="button" className="button" onClick={submitRec}>Submit Rectangle</button>
-                        </div>
-                        <div>
-                            <input type="text" name="square-length" onChange={(e) => { setRecHeight(e.target.value); setRecWidth(e.target.value) }} id="square-length" placeholder="square-length" />
-                            <button type="button" className="button" onClick={submitSqu}>Submit Square</button>
-                        </div>
-                        <div>
-                            <input type="text" name="circle-radius" onChange={(e) => setCirRadius(e.target.value)} id="circle-radius" placeholder="circle-radius" />
-                            <button type="button" className="button" onClick={submitCir}>Submit Circle</button>
-                        </div>
-                        <div>
-                            <input type="text" name="triangle-height" onChange={(e) => setTriHeight(e.target.value)} id="triangle-height" placeholder="triangle-height" />
-                            <button type="button" className="button" onClick={submitTri}>Submit Triangle</button>
-                        </div>
-
-                    </form>
-                    <div className="canvas-container d-flex justify-content-center flex-wrap">
-                        <div className="canvas col-md-8">
-                            {numChildren.map((child: any, index: any) => (
-                                child
-                            ))}
-                        </div>
-                        <div className="specs col-md-3">
-                            <li className="bold" id="Shape">Shape Name: {showShape}</li>
-                            <li className="bold" id="Width">Width: {showWidth}</li>
-                            <li className="bold" id="Height">Height: {showHeight}</li>
-                            <li className="bold" id="Radius">Radius: {showRadius}</li>
-                            <li className="bold" id="Area">Area: {showArea}</li>
-                            <li className="bold" id="Perimeter">Perimeter: {showPerimeter}</li>
-                        </div>
-                    </div>
-                    {projects ? (<> <div className="space-above col-12"></div>
-                        <div className="col-12 d-flex justify-content-center">
-                            <div className="line"></div>
-                        </div>
-                        <div className="description text-center">{projects[Number(id) - 1].description}</div>
-                        <div className="space-above-small col-12"></div>
-                        <div className="col-12 d-flex justify-content-center">
-                            <div className="line"></div>
-                        </div>
-                        <div className="space-above col-12"></div> </>) : (<div></div>)}
-                    <div className="d-flex justify-content-between col-12">
-                        <a href="https://www.facebook.com/michael.richardson.98892615" target="_blank"><span className="socials"><img className="facebook" src="/assets/fb.png" alt="" /></span></a>
-                        <a href="https://github.com/Mikamora" target="_blank"><img src="/assets/github.png" className="socials" alt="" /></a>
-                        <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
-                    </div>
-                    <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                        <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
-                        <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
-                    </div>
-                    <div className="space-above col-12"></div>
-                </main>
-            </>
-        )
-    }
-    //console
-    else if (id == "4") {
-        return (
-            <>
-                <main className="container">
-                    <div className="row">
-                        {projects ? (<>
-                            <div className="space-above col-12"></div>
-                            <div className="col-12 text-center work-detail-header under-601">{projects[Number(id) - 1].description}</div>
-                            <div className="space-above col-12"></div>
-                            <div className="d-flex col-12 justify-content-center"><input onChange={e => setConsole(e.target.value)} value={consoleStatement} type="text" placeholder="say hello..." /></div>
-                            <div className="space-above col-12"></div>
-                            <div className="d-flex col-12 justify-content-center"><button className="btn btn-dark" onClick={displayMessage}>send message</button></div>
-                            <div className="space-above col-12"></div>
-                            <div className={`d-flex col-12 justify-content-center ${nameIt}`} ><input className={`${nameIt}`} onChange={e => setConsoleName(e.target.value)} value={consoleName} type="text" placeholder="whats the new name?" /></div>
-                            <div className="space-above col-12"></div>
-                            <div className={`d-flex col-12 justify-content-center ${nameIt}`}><button className={`btn btn-dark ${nameIt}`} onClick={displayMessage}>set name</button></div>
-                        </>) : (<div></div>)}
-                        <div className="col-12 d-flex justify-content-center">
-                            <div className="line"></div>
-                        </div>
-                        <div className="space-above col-12"></div>
-                        <div className="d-flex justify-content-between col-12">
-                            <a href="https://www.facebook.com/michael.richardson.98892615" target="_blank"><span className="socials"><img className="facebook" src="/assets/fb.png" alt="" /></span></a>
-                            <a href="https://github.com/Mikamora" target="_blank"><img src="/assets/github.png" className="socials" alt="" /></a>
-                            <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
-                        </div>
-                        <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                            <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
-                            <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
-                        </div>
-                        <div className="space-above col-12"></div>
-                    </div>
-                </main>
-            </>
-        )
-    }
-    //tic tac toe
-    else if (id == "6") {
-        return (
-            <>
-                <div id="board">
-                    <h1 className="title-tic">{projects?.[5].title}</h1>
-
-                    <div className="col-12 d-flex justify-content-center title-tic"><button className={`button ${computer}`} onClick={displayComp}>Vs Computer</button><button className={`button ${vs}`} onClick={displayVs}>Local multiplayer</button></div>
-                    <div className={`${newGame} space-above col-12`}></div>
-                    <h3 id="winningStatement" className={`${newGame} `}>{`${newGame} X's turn`}</h3>
-                    <div className={`${newGame} space-above col-12`}></div>
-                    <div className={`${newGame} new-row`}>
-                        <div className={`${newGame} top left`}></div>
-                        <div className={`${newGame} top middle`}></div>
-                        <div className={`${newGame} top right`}></div>
-                    </div>
-                    <div className={`${newGame} new-row`}>
-                        <div className={`${newGame} middle left`}></div>
-                        <div className={`${newGame} center`}></div>
-                        <div className={`${newGame} middle right`}></div>
-                    </div>
-                    <div className={`${newGame} new-row`}>
-                        <div className={`${newGame} bottom left`}></div>
-                        <div className={`${newGame} bottom middle`}></div>
-                        <div className={`${newGame} bottom right`}></div>
-                    </div>
-                </div>
-                <button id="SubmitButtonRestart" className={`${newGame} `}>restart</button>
-            </>
-        )
-    }
-    //if doesnt exist
-    else {
-        return (
-            <>
-            <main className="container d-flex justify-content-center flex-wrap">
-                    <div className="col-12">
-                        <button onClick={routeProfile} className="btn btn-warning goback-margin mt-5">Go Back?</button>
-                    </div>
-                    <div className="bl-abril-text col-12 text-center">This project doesnt exist yet...</div>
-                    <div className="spacing-100 col-12"></div>
-                    <div className="spacing-50 col-12"></div>
-                    <div className="bl-small-quicksand-text text-muted text-center col-12">contact me and we can get started on bringing it to life!</div>
-                    <button onClick={handleContact} className="btn btn-warning">Let's Get To Work!</button>
-                </main>
+            <div className="loader">Loading...</div>
             </>
         )
     }
