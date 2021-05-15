@@ -44,8 +44,8 @@ const Work: React.FC<IWorkProps> = () => {
         )()
     }, [])
 
-    if (w) {
-        
+    if (w == "w") {
+
         return (
             <>
                 <img className="background-line" src="./assets/homepageline.png" alt="" />

@@ -50,7 +50,7 @@ const About: React.FC<IAboutProps> = () => {
     }
 
 
-    if (!w) {
+    if (w == "") {
         return (
             <>
                 <div id="width-custom" className="absolute"></div>

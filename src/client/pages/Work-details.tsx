@@ -384,12 +384,12 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
         }
     }
 
-    if (!w) {
+    if (w == "") {
         return (
             <>
             </>
         )
-    } else if (loaded && w) {
+    } else if (loaded && w == "w") {
         if (id == "1" || id == "2" || id == "5" || id == "7") {
             return (
                 <>

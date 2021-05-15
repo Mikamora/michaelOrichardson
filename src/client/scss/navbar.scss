@@ -322,8 +322,8 @@
         height:150px;
         animation-duration: 2s;
         animation-name: rollin;
-        margin-right:50px;
-        margin-top:70px;
+        margin-left: 0px !important;
+        margin-top:50px;
         background-color: black;
         position: absolute;
         z-index: 2;
@@ -335,7 +335,7 @@
             transform: rotate(-100deg);
         }
         to {
-            margin-left: 50px;
+            margin-left: 0px;
             transform: rotate(0deg);
         }
     }
