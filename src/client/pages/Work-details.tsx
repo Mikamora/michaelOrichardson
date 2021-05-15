@@ -415,7 +415,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                                 <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                             </div>
                             <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                                <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
                                 <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                             </div>
                             <div className="space-above col-12"></div>
@@ -454,12 +454,12 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
     
                         </form>
                         <div className="canvas-container d-flex justify-content-center flex-wrap">
-                            <div className="canvas col-md-8">
+                            <div className="canvas col-lg-8">
                                 {numChildren.map((child: any, index: any) => (
                                     child
                                 ))}
                             </div>
-                            <div className="specs col-md-3">
+                            <div className="specs col-lg-3">
                                 <li className="bold" id="Shape">Shape Name: {showShape}</li>
                                 <li className="bold" id="Width">Width: {showWidth}</li>
                                 <li className="bold" id="Height">Height: {showHeight}</li>
@@ -469,6 +469,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                             </div>
                         </div>
                         {projects ? (<> <div className="space-above col-12"></div>
+                        <div className="mobile-big-space col-12"></div>
                             <div className="col-12 d-flex justify-content-center">
                                 <div className="line"></div>
                             </div>
@@ -484,7 +485,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                             <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                         </div>
                         <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                            <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
+                            <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
                             <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                         </div>
                         <div className="space-above col-12"></div>
@@ -520,7 +521,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                                 <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                             </div>
                             <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                                <div className="btn" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
                                 <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                             </div>
                             <div className="space-above col-12"></div>
@@ -536,7 +537,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                     <div id="board">
                         <h1 className="title-tic">{projects?.[5].title}</h1>
     
-                        <div className="col-12 d-flex justify-content-center title-tic"><button className={`button ${computer}`} onClick={displayComp}>Vs Computer</button><button className={`button ${vs}`} onClick={displayVs}>Local multiplayer</button></div>
+                        <div className="col-12 d-flex justify-content-center title-tic"><button className={`button no-filter ${computer}`} onClick={displayComp}>Vs Computer</button><button className={`button no-filter ${vs}`} onClick={displayVs}>Local multiplayer</button></div>
                         <div className={`${newGame} space-above col-12`}></div>
                         <h3 id="winningStatement" className={`${newGame} `}>{`${newGame} X's turn`}</h3>
                         <div className={`${newGame} space-above col-12`}></div>

@@ -18,6 +18,23 @@
     width: 340px;
     height: 600px;
 }
+
+.fix {
+  margin-left: 0 !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .mobile-not-on {
+    display: none !important;
+  }
+  .custom-mobile-margin {
+    margin-top: 30px;
+  }
+}
+.mobile-not-on {
+
+}
+
 #width-custom {
     width: 100%;
     overflow: hidden;

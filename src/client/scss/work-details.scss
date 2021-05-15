@@ -2,6 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 
+.no-filter {
+    filter: none !important;
+}
+
 .loader {
     color: #ffffff;
     font-size: 90px;
@@ -152,7 +156,7 @@
 }
 
 #Shape, #Width, #Height, #Area, #Perimeter, #Radius{
-    width: 400px;
+    width: 220px;
     background-color: rgb(253, 143, 244);
     border: 1px black solid;
     border-radius: 4px;
@@ -165,12 +169,17 @@
     background-color: coral;
     border-radius: 5px;
     padding: 10px;
-    width: 600px;
     margin: 10px;
 }
 
 .shapes{
     position: absolute;
+}
+
+@media screen and (max-width: 1000px) {
+    .mobile-big-space {
+        height: 300px;
+    }
 }
 ///////// console.log
 @media screen and (max-width: 601px) {
@@ -270,3 +279,9 @@
     margin-left: 60px;
   }
   
+@media screen and (max-width:500px) {
+    .email-under-work {
+    flex: 0 0 100%;
+    max-width: 100%;
+    }
+}
