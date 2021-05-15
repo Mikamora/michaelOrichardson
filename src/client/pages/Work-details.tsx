@@ -214,24 +214,19 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
     //////// tic tac toe
     const [newGame, setNewGame] = useState("no-display");
     const [computer, setComputer] = useState("computer");
+    const [mode, setMode] = useState("");
     const [vs, setVs] = useState("vs");
     const displayComp = () => {
         setNewGame("");
         setVs("vs");
         setComputer("");
-        localStorage.setItem("comp", "comp")
-        if (localStorage.getItem("vs")) {
-            localStorage.removeItem("vs");
-        }
+        setMode("comp")
     }
     const displayVs = () => {
         setNewGame("");
         setVs("");
         setComputer("computer");
-        localStorage.setItem("vs", "vs")
-        if (localStorage.getItem("comp")) {
-            localStorage.removeItem("comp");
-        }
+        setMode("vs")
     }
 
     let routeProfile = () => {
@@ -284,11 +279,11 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
             if (e.target.textContent == "O" || e.target.textContent == "X" || winningStatement.textContent == "O Wins!") {
                 return;
             }
-            if (localStorage.getItem("vs")) {
+            if (mode == "vs") {
                 e.target.textContent = "X";
                 winningStatement.textContent = "O's turn";
                 whoseTurn = false;
-            } if (localStorage.getItem("comp")) {
+            } if (mode == "comp") {
                 e.target.textContent = "X";
                 winningStatement.textContent = "Computer's turn";
                 // console.log(Array.prototype.indexOf.call(cells, e.target));

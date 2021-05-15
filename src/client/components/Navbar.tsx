@@ -16,17 +16,17 @@ const NavBar: React.FC<INavBar> = () => {
     const [displayNone2, setDisplayNone2] = useState("displayNone");
     const [logo, setLogo] = useState("");
     const [c, setC] = useState("custom-container3-alt");
-
-    window.onbeforeunload = function (e: any) {
-        localStorage.removeItem("w");
-        localStorage.removeItem("vs");
-        localStorage.removeItem("comp");
-    };
+    const [wSet, setWSet] = useState("")
+    localStorage.setItem("w", wSet);
 
     const handleLoad = () => {
         setLoaded(true);
-        localStorage.setItem("w", "w");
+        localStorage.setItem("w", wSet);
     };
+
+    const handleLoad2 = () => {
+        setWSet("w")
+    }
 
     let handleNav = () => {
 
@@ -64,6 +64,12 @@ const NavBar: React.FC<INavBar> = () => {
             handleLoad(); //After three seconds call handleLoad(), which has setLoaded() === true.
         }, 2000);
     }, [loaded]);
+    
+    useEffect(() => {
+        setTimeout(() => {
+            handleLoad2(); //After three seconds call handleLoad(), which has setLoaded() === true.
+        }, 1999);
+    });
 
 
     if (loaded) {

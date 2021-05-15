@@ -107,7 +107,7 @@ const Home: React.FC<IHomeProps> = () => {
     //     window.scrollTo({top: 1028, left: 0, behavior: "smooth"})
     // }
 
-    if (!loaded && !w) {
+    if (!loaded && w == "") {
         return (
             <>
                 <div className="background1 size15 absolute"></div>
