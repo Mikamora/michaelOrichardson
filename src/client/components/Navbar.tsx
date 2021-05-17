@@ -78,6 +78,7 @@ const NavBar: React.FC<INavBar> = () => {
                 <div className="custom-container-logo">
                     <div className={`${logo} absolute pointer`} onClick={changeTag}>mr;</div>
                 </div>
+                <div className="y absolute"><img src="/assets/clickformore.png" className="absolute x" style={{height: "0px", width: "0px"}} alt="" /></div>
                 <div className="absolute col-12 custom-flex justify-content-end text-muted custom-reminder"> <span className="under-1000">*This site was made with</span> <span className="space-mid-sentence"></span>  React, SCSS, Express, and Node.</div>
                 <div className={`custom-flex ${c} justify-content-center small-nav-style`}>
                     <div className={`${tag2} custom-flex flex-wrap justify-content-center align-items-center small-nav-style`}>

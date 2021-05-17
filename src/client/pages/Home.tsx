@@ -57,7 +57,7 @@ const Home: React.FC<IHomeProps> = () => {
     let handleWorkPush = () => {
         history.push("/work");
         setTimeout((e: any) => {
-            scrollTo(0,0);
+            scrollTo(0, 0);
         }, 1);
     }
 
@@ -205,7 +205,7 @@ const Home: React.FC<IHomeProps> = () => {
                     <form id="contact-form" onSubmit={handleSubmit} method="POST">
                         <div className="col-12 d-flex justify-content-center flex-wrap"><input className="custom-contact-input width-input" onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder="name" /></div>
                         <div className="col-12 d-flex justify-content-center my-4"><input className="custom-contact-input width-input" onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder="email" /></div>
-                        <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input width-input" name="message" onChange={(e) => setMessage(e.target.value)} value={message} id="message-area"  rows={10} placeholder="message"></textarea></div>
+                        <div className="col-12 d-flex justify-content-center mb-5"><textarea className="custom-contact-input width-input" name="message" onChange={(e) => setMessage(e.target.value)} value={message} id="message-area" rows={10} placeholder="message"></textarea></div>
                         <div className="col-12 d-flex justify-content-center"><button type="submit" className="btn btn-warning bolder mb-5">Send</button></div>
                     </form>
                     <div className="filler col-12"></div>

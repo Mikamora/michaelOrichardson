@@ -212,7 +212,7 @@
         height:250px;
         animation-duration: 2s;
         animation-name: rollin;
-        margin-right: 50px;
+        margin-left: 0px !important;
         margin-top:0px;
         background-color: black;
         
@@ -266,7 +266,7 @@
         height:150px;
         animation-duration: 2s;
         animation-name: rollin;
-        margin-right:50px;
+        margin-left: 0px !important;
         margin-top:70px;
         background-color: black;
         position: absolute;
@@ -328,7 +328,38 @@
         position: absolute;
         z-index: 2;
     } 
-    
+
+    .y {
+        display: none;
+    }
+
+    @media screen and (max-width: 579px) {
+        .x {
+            width: auto !important;
+            height: auto !important;
+        } 
+        .y {
+            top: 50px;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            overflow: hidden;
+            height: 150px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 300px) {
+        .x {
+            width: 0px;
+            height: 0px;
+        } 
+        .y {
+            height: 0px;
+            width: 0px;
+        }
+    }
+
     @keyframes rollin {
         from {
             margin-left:-500px;
