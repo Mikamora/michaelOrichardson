@@ -93,7 +93,7 @@ const About: React.FC<IAboutProps> = () => {
                                     <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="./assets/linkedin.png" alt="" /></a>
                                 </div>
                                 <div className="filler-small"></div>
-                                <div className="text-center custom-about-text-2 pointer" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <div className="text-center custom-about-text-2 pointer" onClick={handleContact}>mrichardson@mrcreative.dev</div>
                             </div>
                         </div>
                         <div className="row col-12 filler">
@@ -121,7 +121,7 @@ const About: React.FC<IAboutProps> = () => {
                                     <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="./assets/linkedin.png" alt="" /></a>
                                 </div>
                                 <div className="filler-small"></div>
-                                <div className="text-center custom-about-text-2">mor7991@yahoo.com</div>
+                                <div className="text-center custom-about-text-2">mrichardson@mrcreative.dev</div>
                             </div>
                         </div>
                         <div className="row col-12 filler">

@@ -418,7 +418,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                                 <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                             </div>
                             <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                                <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <div className="btn email-under-work" onClick={handleContact}>mrichardson@mrcreative.dev</div>
                                 <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                             </div>
                             <div className="space-above col-12"></div>
@@ -488,7 +488,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                             <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                         </div>
                         <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                            <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
+                            <div className="btn email-under-work" onClick={handleContact}>mrichardson@mrcreative.dev</div>
                             <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                         </div>
                         <div className="space-above col-12"></div>
@@ -524,7 +524,7 @@ const WorkDetails: React.FC<IWorkDetailsProps> = (props) => {
                                 <a href="https://www.linkedin.com/in/michael-richardson-0ab290187/" target="_blank"><img className="socials" src="/assets/linkedin.png" alt="" /></a>
                             </div>
                             <div className="col-12 flex-wrap d-flex justify-content-around align-items-center">
-                                <div className="btn email-under-work" onClick={handleContact}>mor7991@yahoo.com</div>
+                                <div className="btn email-under-work" onClick={handleContact}>mrichardson@mrcreative.dev</div>
                                 <Link className="back-to-work text-center" to={"/work"}>Back to work</Link>
                             </div>
                             <div className="space-above col-12"></div>
