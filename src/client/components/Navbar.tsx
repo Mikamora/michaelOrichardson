@@ -38,7 +38,7 @@ const NavBar: React.FC<INavBar> = () => {
             history.push("/");
             setTimeout(() => {
                 document.getElementById("contact").scrollIntoView()
-            }, 80)
+            }, 200)
         }
     }
 
