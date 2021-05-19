@@ -72,28 +72,42 @@ const Home: React.FC<IHomeProps> = () => {
     }
 
     const handleSubmit = (e: any) => {
-        e.preventDefault();
-        setLoading("loading")
+        if(email == "" || name == "" || message == "") {
+            e.preventDefault();
+            setLoading("loading")
+            alert("Something is a little off here, don't leave anything blank.")
+            setLoading("no-display")
+        } else if (!email.includes("@") && !email.includes(".")) {
+            e.preventDefault();
+            setLoading("loading")
+            alert("try a different email.")
+            setLoading("no-display")
+        } else {
+            e.preventDefault();
+            setLoading("loading")
+    
+            fetch('/send/send', {
+                method: "POST",
+                body: JSON.stringify({ name: name, email: email, message: message }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            }).then(
+                (response) => (response.json())
+            ).then((response) => {
+                if (response.status === 'success') {
+                    setLoading("no-display")
+                    alert("Message Sent.");
+                    resetForm();
+                } else if (response.status === 'fail') {
+                    setLoading("no-display")
+                    alert("Message failed to send.")
+                }
+            })
+            
+        }
 
-        fetch('/send/send', {
-            method: "POST",
-            body: JSON.stringify({ name: name, email: email, message: message }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        }).then(
-            (response) => (response.json())
-        ).then((response) => {
-            if (response.status === 'success') {
-                setLoading("no-display")
-                alert("Message Sent.");
-                resetForm();
-            } else if (response.status === 'fail') {
-                setLoading("no-display")
-                alert("Message failed to send.")
-            }
-        })
     }
 
     const resetForm = () => {
