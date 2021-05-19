@@ -193,7 +193,7 @@ const Home: React.FC<IHomeProps> = () => {
                             </div>
                             <div className="col-md-6 pic-container2"> <img className="profile-pic circle" src="./assets/profilepic.jpg" alt="" /> </div>
                             <div className="col-md-6 margin-top-desc custom-med-quicksand d-flex align-items-center">
-                                <div className="box"> <p> I am a full-stack web developer currently looking for full-time work. I love coding as a whole but I have a passion for front-end UI/UX development and creating the most user-friendly experience possible.</p>
+                                <div className="box"> <p> I am a full-stack web developer currently looking for full-time work. I have a passion for front-end UI/UX development and creating the most user-friendly experience possible.</p>
                                 </div>
                             </div>
                             <div className="custom-flex-home justify-content-center align-items-center col-12">
